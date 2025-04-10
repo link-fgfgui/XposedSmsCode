@@ -19,7 +19,6 @@ import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 
-import java.util.Collection;
 /**
  * Since Android 14(API 34+)<br/>
  * Hook com.android.server.pm.permission.PermissionManagerServiceImpl
@@ -125,7 +124,7 @@ public class PermissionManagerServiceHook34 extends BaseSubHook {
 
                     // Manifest.xml 中声明的permission列表
                     // List<String> requestPermissions = pkg.getRequestedPermissions();
-                    final Collection<String> requestedPermissions = (Collection<String>)
+                    final List<String> requestedPermissions = (List<String>)
                             XposedHelpers.callMethod(pkg, "getRequestedPermissions");
 
                     // com.android.server.pm.permission.DevicePermissionState 对象
